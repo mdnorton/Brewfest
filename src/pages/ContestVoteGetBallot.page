@@ -1,0 +1,24 @@
+<apex:page controller="ContestVoteController" showHeader="false" sidebar="false">
+
+	<c:ForceByDesign />
+
+    <apex:pageMessages /> 
+
+    <apex:form >
+        <apex:pageBlock title="Contest Voting">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Next" action="{!gotoPage2}" />
+                <apex:commandButton value="Reset" action="{!reset}" />
+            </apex:pageBlockButtons>
+
+        <apex:pageblockSection >
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Ballot Code:" />
+                <apex:inputText value="{!ballotCode}" size="6" maxlength="6"/>
+            </apex:pageblockSectionItem>
+        </apex:pageblockSection>
+        </apex:pageBlock>
+        
+    </apex:form>
+
+</apex:page>

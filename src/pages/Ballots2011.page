@@ -1,0 +1,17 @@
+<apex:page controller="Ballots2011Controller" showHeader="false" sidebar="false">
+
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!comboBallots}" var="cb">
+            <apex:column >{!contest1.Ballot_Message__c}<br/>{!contest2.Ballot_Message__c}</apex:column>
+            <apex:column >
+                <apex:image url="http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl={!contest1.Voting_URL__c}?ballotCode={!cb.ballotCode1}" />
+                <br/>Chili Ballot: <b>{!cb.ballotCode1}</b>
+            </apex:column>
+            <apex:column >
+                <apex:image url="http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl={!contest2.Voting_URL__c}?ballotCode={!cb.ballotCode2}" />
+                <br/>Beer Ballot: <b>{!cb.ballotCode2}</b>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+</apex:page>

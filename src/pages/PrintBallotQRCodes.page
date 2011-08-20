@@ -1,0 +1,16 @@
+<apex:page standardController="Contest__c" extensions="PrintBallotQRCodesExtension" showHeader="false" sidebar="false">
+
+    <table cellpadding="15">
+        <apex:repeat value="{!allBallots}" var="ballots">
+            <tr>
+                <apex:repeat value="{!ballots}" var="ballot">
+                    <td>
+                        <apex:image url="http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl={!contest.Voting_URL__c}?ballotCode={!ballot}" />
+                        <br/>{!contest.Ballot_Message__c} <b>{!ballot}</b>
+                    </td>
+                </apex:repeat>
+            </tr>
+        </apex:repeat>
+    </table>
+
+</apex:page>

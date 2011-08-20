@@ -1,0 +1,17 @@
+<apex:page controller="ContestVoteController" showHeader="false" sidebar="false">
+
+	<c:ForceByDesign />
+
+    <apex:pageMessages /> 
+
+    <apex:form >
+        <apex:pageBlock title="Your vote for {!ballot.contest__r.name} is complete!">
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton value="Back to Voting" action="{!reset}" />
+            </apex:pageBlockButtons>
+
+        </apex:pageBlock>
+        
+    </apex:form>
+  
+</apex:page>

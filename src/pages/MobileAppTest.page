@@ -1,0 +1,53 @@
+<apex:page showheader="false" controller="MobileAppTestController">
+<apex:pageMessages />
+User Agent: {!userAgent} <br/>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Visualforce Mobile Trigger Test</title>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;
+user-scalable=0;" />
+<!-- Using static resource -->
+<script type="application/x-javascript" src="/mobileclient/api/mobileforce.js"></script>
+<script>
+function sync() {
+mobileforce.device.sync();
+return false;
+}
+function doClose() {
+mobileforce.device.close();
+return false;
+}
+function syncClose() {
+mobileforce.device.syncClose();
+return false;
+}
+updateLocation = function(lat,lon) {
+document.getElementById('lat').value = lat;
+document.getElementById('lon').value = lon;
+}
+function getLocation() {
+mobileforce.device.getLocation(updateLocation);
+return false;
+}
+</script>
+</head>
+<body>
+<h2>Triggers:</h2>
+<p>
+<a href="#" onclick="return sync();">JS sync</a><br/>
+<a href="#" onclick="return doClose();">JS close</a><br/>
+<a href="#" onclick="return syncClose();">JS sync and close</a><br/>
+<a href="mobileforce:///sync">HTML sync</a><br/>
+<a href="mobileforce:///close">HTML close</a><br/>
+<a href="mobileforce:///sync/close">HTML sync and close</a><br/>
+</p>
+
+<h2>Location:</h2>
+<p>Latitude: <input type="text" disabled="disabled" id="lat" name="lat" value=""/></p>
+<p>Logitude: <input type="text" disabled="disabled" id="lon" name="lon" value=""/></p>
+<a href="#" onclick="return getLocation();">Get location</a><br/>
+
+</body>
+</html>
+</apex:page>

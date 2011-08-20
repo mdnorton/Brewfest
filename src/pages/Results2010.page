@@ -1,0 +1,16 @@
+<apex:page controller="Results2010Controller" tabStyle="Contest__c" showHeader="false" sidebar="false">
+<apex:sectionHeader title="Brewfest 2010 - Results"/>
+
+    <apex:repeat value="{!contests}" var="contest" >
+        <apex:pageBlock title="{!contest.name} Winners">
+            <apex:pageBlockTable value="{!contest.Contest_Entries__r}" var="r" >
+                <apex:column value="{!r.name}" />
+                <apex:column value="{!r.Contestant__R.name}" />
+                <apex:column value="{!r.Average_Score__c}" />
+                <apex:column value="{!r.Total_Score__c}" />
+                <apex:column value="{!r.Vote_Count__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <br />
+    </apex:repeat>
+</apex:page>

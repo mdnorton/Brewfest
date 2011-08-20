@@ -1,0 +1,6 @@
+<apex:component >
+	<apex:outputLink value="http://forcebydesign.com">
+		<apex:image value="{!$Resource.ForceByDesignLogo}" width="153" height="131" />
+		<apex:image value="{!$Resource.FBDBanner}"  />
+	</apex:outputLink>
+</apex:component>

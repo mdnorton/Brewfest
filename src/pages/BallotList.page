@@ -1,0 +1,18 @@
+<apex:page standardController="Contest__c" showHeader="false" sidebar="false" cache="false" >
+
+	<c:ForceByDesign />
+
+	<apex:pageBlock title="Contest Ballots">
+	   
+	    <apex:pageblockSection title="Ballots for {!Contest__c.name}" columns="4" collapsible="false">
+	        <apex:pageBlockTable value="{!Contest__c.Contest_Ballots__r}" var="ballot" >
+	            <apex:column value="Contest: {!Contest__c.name}"/>
+	            <apex:column value="Ballot: {!ballot.name}"/>
+	            <apex:column value="Message: {!Contest__c.Ballot_Message__c}" />
+	            <apex:column value="Vote At: {!Contest__c.Voting_URL__c}" />
+	            <apex:column ><apex:image url="http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl={!Contest__c.Voting_URL__c}" /></apex:column>
+	        </apex:pageBlockTable>
+	    </apex:pageblockSection>
+	</apex:pageBlock>
+
+</apex:page>

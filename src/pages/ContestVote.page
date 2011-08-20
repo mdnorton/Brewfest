@@ -1,0 +1,36 @@
+<apex:page controller="ContestVoteController" showHeader="false" sidebar="false">
+
+	<c:ForceByDesign />
+	
+    <apex:pageMessages />
+    
+    <apex:form >
+        <apex:pageBlock title="Contest Voting">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Submit" action="{!submit}" />
+                <apex:commandButton value="Reset" action="{!reset}" />
+            </apex:pageBlockButtons>
+
+        <apex:pageblockSection columns="1">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Ballot Code:" />
+                <apex:outputText value="{!ballot.name}"/>
+            </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Contest:" />
+                <apex:outputText value="{!ballot.contest__r.name}"/>
+            </apex:pageblockSectionItem>
+            
+            <apex:pageBlockTable value="{!entryList}" var="item" >
+            	<apex:column value="{!item.entry.contestant__r.name}" />
+            	<apex:column value="{!item.entry.name}" />
+            	<apex:column headerValue="Score (1 = Low ..... 5 = High)">
+            		<apex:selectRadio value="{!item.score}">
+            		<apex:selectOptions value="{!scores}" />
+            		</apex:selectRadio>
+           		</apex:column>
+            </apex:pageBlockTable>
+        </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

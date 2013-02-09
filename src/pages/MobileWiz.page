@@ -1,0 +1,73 @@
+<apex:page controller="MobileWizController" docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false">
+<html> 
+<head> 
+	<title>Brewfest 2013 Mobile App</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
+<body> 
+
+<script>
+	$j = jQuery.noConflict();
+	
+	var pageNum = 0;
+			
+$j( document ).bind('swipeleft',function(event, ui){
+alert( 'swipe left');
+	pageNum += 1;
+	var nextPage = '#page' + pageNum;
+	$j.mobile.changePage( nextPage, { transition: "slide"} );
+});
+
+$j( document ).bind('swiperight',function(event, ui){
+alert( 'swipe right');
+	pageNum -= 1;
+	var lastPage = '#page' + pageNum;
+	$j.mobile.changePage( lastPage, { transition: "slide", reverse: true } );
+});
+</script>
+
+
+	<apex:form >
+
+	<apex:repeat value="{!entries}" var="e" >
+	    <div data-role="page" id="page{!e.sortOrder}">
+	        <div data-role="header">
+	                <h1>Mobile App {!e.entry.Contest__r.Name}</h1>
+	        </div> <!-- page1 header -->
+	      <div data-role="content">
+	        <p> This is one of the voting pages </p>
+	        <p>Entry Name: {!e.entry.Name} </p>
+	        <p>Contestant: {!e.entry.Contestant__r.Name} </p>
+	        <p>Image URL: {!e.entry.Image_URL__c} </p>
+	        <p>Points: {!e.points} </p>
+	        <p>Next Contestant: {!e.sortOrder + 1} </p>
+	        
+	        
+	        <!--  <a data-role="button" data-rel="back" data-direction="reverse">Back</a> -->
+	      </div>
+	    </div>
+    </apex:repeat>
+    
+    <!-- Last Page -->
+    <div data-role="page" id="reviewPage">
+        <div data-role="header">
+                <h1>Mobile App</h1>
+        </div> <!-- page1 header -->
+      <div data-role="content">
+        <p> This is the review page </p>
+        <!-- <apex:commandButton value="Apex Submit" action="{!onSubmit}" />
+        -->
+        <a data-role="button" data-rel="back" data-direction="reverse">Back</a>
+        <p><a href="#page1" data-transition="pop" data-role="button">Start Over</a></p>
+      </div>
+    </div>
+
+
+	</apex:form>
+</body>
+</html>
+</apex:page>

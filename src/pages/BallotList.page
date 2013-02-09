@@ -1,18 +1,59 @@
-<apex:page standardController="Contest__c" showHeader="false" sidebar="false" cache="false" >
+<apex:page standardController="Contest__c" showHeader="false" sidebar="false" cache="false" renderAs="PDF">
 
-	<c:ForceByDesign />
+<head>
+<style>
+body {
+	margin: 20px;
+	font: 10pt verdana, sans-serif;
+}
+h1 {
+	font: 12pt verdana, sans-serif;
+}
+table {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    width: 640px;
+}
+tr {
+    border: 1px solid black; 
+}
+td {
+    font: 10pt verdana,sans-serif;
+    color: #444444;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+</style>
 
-	<apex:pageBlock title="Contest Ballots">
-	   
-	    <apex:pageblockSection title="Ballots for {!Contest__c.name}" columns="4" collapsible="false">
-	        <apex:pageBlockTable value="{!Contest__c.Contest_Ballots__r}" var="ballot" >
-	            <apex:column value="Contest: {!Contest__c.name}"/>
-	            <apex:column value="Ballot: {!ballot.name}"/>
-	            <apex:column value="Message: {!Contest__c.Ballot_Message__c}" />
-	            <apex:column value="Vote At: {!Contest__c.Voting_URL__c}" />
-	            <apex:column ><apex:image url="http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl={!Contest__c.Voting_URL__c}" /></apex:column>
-	        </apex:pageBlockTable>
-	    </apex:pageblockSection>
-	</apex:pageBlock>
+</head>
+
+<body>
+
+	<table>
+		<apex:repeat value="{!Contest__c.Contest_Ballots__r}" var="ballot" >
+		<tr>
+			<td><apex:image value="{!$Resource.BF12Logo}" width="180" height="150"  /></td>
+			<td>
+				<h1>Welcome to Brewfest 2012</h1>
+
+                            <h1><b>{!Contest__c.Ballot_Message__c}</b></h1>
+
+                                Use your mobile device to scan the QR code on your voting sheet,
+                                <br/>or visit homebrewfest.com and click on the "Vote" link.
+                                <br/>Enter your ballot code to begin.
+                                <br/>
+                                <br/>Ballot Code: <b>{!ballot.Name}</b>
+			</td>
+                        <!--
+                        <td><apex:image url="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl={!Contest__c.Voting_URL__c}" /></td>		
+                        -->
+                    </tr>
+                    
+		</apex:repeat>
+	
+	</table>
+
+</body>
 
 </apex:page>

@@ -1,12 +1,12 @@
-#Fri Aug 19 19:46:05 MST 2011
+#Sat Feb 09 07:42:34 MST 2013
 eclipse.preferences.version=1
-endpointApiVersion=20.0
+endpointApiVersion=25.0
 endpointEnvironment=Sandbox
 endpointServer=test.salesforce.com
 httpsProtocol=true
-ideVersion=20.0
+ideVersion=25.0
 keependpoint=false
-metadataFormatVersion=20.0
+metadataFormatVersion=25.0
 namespacePrefix=
 packageName=unpackaged
 readTimeout=400

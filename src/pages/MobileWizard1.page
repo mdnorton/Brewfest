@@ -1,0 +1,42 @@
+<apex:page controller="MobileWizardController" docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false">
+<html> 
+<head> 
+	<title>Brewfest 2013 Mobile App</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" class="ballotPage">
+
+
+	<div data-role="header">
+		<h1>Brewfest 2013 Mobile App</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>
+		Welcome to the Brewfest 2013 Mobile App.<br/>
+		Enter your ballot code here then press Go!<br/>
+		</p>		
+	</div><!-- /content -->
+
+	<apex:form >
+		Ballot Code: <apex:inputText size="6" maxlength="4" value="{!ballotCode}" />
+		<br/>
+		<apex:commandButton action="{!onValidateBallotCode}" value="Go!" />
+	</apex:form>
+<script>
+$( '.ballotPage' ).bind('swipeleft',function(event, ui){
+  $.mobile.changePage("/apex/MobileWizard2", { transition: "slide"} );
+});
+</script>
+    
+</div><!-- /page -->
+
+</body>
+</html>
+</apex:page>

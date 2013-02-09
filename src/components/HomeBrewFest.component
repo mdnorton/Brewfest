@@ -1,0 +1,7 @@
+<apex:component >
+	<apex:outputLink value="http://homebrewfest.com">
+		<apex:image value="{!$Resource.BF12Logo}" width="180" height="150"  />
+		
+                <!-- <apex:image value="{!$Resource.FBDBanner}"  /> -->
+	</apex:outputLink>
+</apex:component>

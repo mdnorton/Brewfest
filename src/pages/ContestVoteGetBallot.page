@@ -1,7 +1,10 @@
 <apex:page controller="ContestVoteController" showHeader="false" sidebar="false">
 
+    <!--
 	<c:ForceByDesign />
-
+    -->
+    <c:HomeBrewFest />
+    
     <apex:pageMessages /> 
 
     <apex:form >

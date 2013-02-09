@@ -6,9 +6,11 @@ public with sharing class ContestBallotGenerator {
 		System.debug( 'Generating ' + numberToGenerate + ' ballots for contest id ' + contest.id);
 		List<Contest_Ballot__c> ballots = new List<Contest_Ballot__c>();
 		for ( Integer i = 0 ; i < numberToGenerate ; i++ ) {
-			ballots.add( new Contest_Ballot__c( contest__c = contest.id, name = Util.randomCode( BALLOT_LENGTH))); 
+			String newBallotCode = Util.randomCode( BALLOT_LENGTH);
+			ballots.add( new Contest_Ballot__c( contest__c = contest.id, name = newBallotCode, Unique_Ballot_Code__c = newBallotCode)); 
 		}
  		
-		insert ballots;
+		Database.Saveresult[] results = Database.insert( ballots, false);
+		
 	}
 }

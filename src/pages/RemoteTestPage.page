@@ -1,0 +1,65 @@
+<apex:page controller="RemoteTest">
+  <script>
+  
+      var contacts;
+  
+      function contactSearch(name) {
+          RemoteTest.findContacts(name,handleContacts);
+      }
+      
+      function logger( msg) {
+      //RemoteTest.logIt( msg, doNothing);
+      RemoteTest.checkBallotCode( 'abc', doNothing);
+      }
+      
+      function doNothing(result, event)  {
+          if(event.type == 'exception') {
+              alert(event.message);
+          }
+          
+      }
+      
+      function handleContacts(result, event) {
+          if(event.type == 'exception') {
+              alert(event.message);
+          } else {
+              contacts = result;
+              showContacts();
+          }
+      }
+      
+      function showContacts() {
+          var newList = "";
+          for(var i = 0; i < contacts.length; i++) {
+              newList += "<button onclick='showContact("+i+")'>"+contacts[i].Name+"</button><BR />";
+          }
+          document.getElementById('contactList').innerHTML = newList;
+      }
+      
+      function showContact(index) {
+          document.getElementById('phone').innerHTML = 'Phone: '+contacts[index].Phone;
+          document.getElementById('email').innerHTML = 'Email: '+contacts[index].Email;
+      }
+      
+      
+      
+
+  </script>
+  
+  <input type="text" id="nameField"/>
+  <button onclick="contactSearch(document.getElementById('nameField').value)">Search Contacts</button>
+
+<br/>
+  <input type="text" id="myMessage"/>
+  <button onclick="logger(document.getElementById('myMessage').value)">Log This</button>
+
+  <hr/>
+  <div style="width: 50%;">
+  <div id="contactList"></div>
+  
+  <div style="float: right">
+      <div id="phone"></div>
+      <div id="email"></div>
+  </div>
+  </div>
+</apex:page>

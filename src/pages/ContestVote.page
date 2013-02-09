@@ -1,7 +1,10 @@
 <apex:page controller="ContestVoteController" showHeader="false" sidebar="false">
 
+    <!--
 	<c:ForceByDesign />
-	
+	-->
+    
+    <c:HomeBrewFest />
     <apex:pageMessages />
     
     <apex:form >
@@ -11,7 +14,11 @@
                 <apex:commandButton value="Reset" action="{!reset}" />
             </apex:pageBlockButtons>
 
+        <!--
         <apex:pageblockSection columns="1">
+        -->
+        <apex:pageblockSection >
+            <!--
             <apex:pageblockSectionItem >
                 <apex:outputLabel value="Ballot Code:" />
                 <apex:outputText value="{!ballot.name}"/>
@@ -20,9 +27,10 @@
                 <apex:outputLabel value="Contest:" />
                 <apex:outputText value="{!ballot.contest__r.name}"/>
             </apex:pageblockSectionItem>
+            -->
             
             <apex:pageBlockTable value="{!entryList}" var="item" >
-            	<apex:column value="{!item.entry.contestant__r.name}" />
+            	<!-- <apex:column value="{!item.entry.contestant__r.name}" /> -->
             	<apex:column value="{!item.entry.name}" />
             	<apex:column headerValue="Score (1 = Low ..... 5 = High)">
             		<apex:selectRadio value="{!item.score}">

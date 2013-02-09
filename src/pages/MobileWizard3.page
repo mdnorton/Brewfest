@@ -1,0 +1,41 @@
+<apex:page controller="MobileWizardController" docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false">
+<html> 
+<head> 
+	<title>Brewfest 2013 Mobile App</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" class="summaryPage">
+
+	<div data-role="header">
+		<h1>Brewfest 2013 Mobile App</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>
+		This is the summary page of the 2013 Mobile App.<br/>
+		List out all the contest entries and their score here <br/>
+		</p>		
+	</div><!-- /content -->
+
+	<apex:form >
+		<br/>
+		<apex:commandButton action="{!onSubmit}" value="Submit My Scores" />
+	</apex:form>
+
+<script>
+$( '.summaryPage' ).bind('swiperight',function(event, ui){
+  $.mobile.changePage("/apex/MobileWizard2", { transition: "slide", reverse: true} );
+});
+</script>
+    
+</div><!-- /page -->
+
+</body>
+</html>
+</apex:page>

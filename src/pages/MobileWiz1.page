@@ -1,0 +1,80 @@
+<apex:page controller="ContestHelper" docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false">
+<html> 
+<head> 
+	<title>Brewfest 2013 Mobile App</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
+<body>
+
+<script>
+	$j = jQuery.noConflict();
+
+	var bc;
+function validateBallotCode() {
+	bc = $j('#ballotcode').val();
+	if (bc == null || bc == '') {
+		//j$('#policySaveError').html('Policy number is required');
+		alert( 'ballot code is required');
+		return;
+	}
+	//alert( 'Ballot code is [' + bc + ']');
+
+	ContestHelper.checkBallotCode( bc, handleBallotResult);
+
+}
+
+function doNothing(result, event)  {
+    if(event.type == 'exception') {
+        alert(event.message);
+    }
+    
+}
+      
+
+function handleBallotResult( result, event) {
+	//alert( 'Ballot result is [' + result.valid + '/' + result.message + ']');
+	if ( event.type == 'exception') {
+		alert( 'JS Exception ' + event.message);
+		return;
+	} 
+
+	if ( result.valid != 'true') {
+		alert( result.message);
+		return;
+	}
+	
+	$j.mobile.changePage("/apex/MobileWiz?ballotCode=" + bc, { transition: "flip"} );
+
+}
+
+	
+</script>
+
+	<apex:form >
+
+	<div data-role="page" id="page1">
+        <div data-role="header">
+                <h1>Mobile App</h1>
+        </div> <!-- page1 header -->
+	<div data-role="content">
+        <p> Welcome Message! </p>
+
+		<div data-role="fieldcontain" class="ui-hide-label">
+			<label for="ballotcode">Ballot Code:</label>
+			<input type="text" name="ballotcode" id="ballotcode" value="" placeholder="Ballot Code"/>
+		</div>
+
+		<p><a href="" data-role="button" onclick="validateBallotCode();">Go!</a></p>
+
+      </div>
+    </div>
+
+
+	</apex:form>
+</body>
+</html>
+</apex:page>

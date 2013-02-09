@@ -16,14 +16,14 @@
 	var pageNum = 0;
 			
 $j( document ).bind('swipeleft',function(event, ui){
-alert( 'swipe left');
+	console.log( 'swipe left');
 	pageNum += 1;
 	var nextPage = '#page' + pageNum;
 	$j.mobile.changePage( nextPage, { transition: "slide"} );
 });
 
 $j( document ).bind('swiperight',function(event, ui){
-alert( 'swipe right');
+	console.log( 'swipe right');
 	pageNum -= 1;
 	var lastPage = '#page' + pageNum;
 	$j.mobile.changePage( lastPage, { transition: "slide", reverse: true } );
@@ -42,7 +42,13 @@ alert( 'swipe right');
 	        <p> This is one of the voting pages </p>
 	        <p>Entry Name: {!e.entry.Name} </p>
 	        <p>Contestant: {!e.entry.Contestant__r.Name} </p>
-	        <p>Image URL: {!e.entry.Image_URL__c} </p>
+
+	        <!-- IMAGE HERE -->
+			<div class="ui-block-b"> <div class="ui-bar">
+				<img src="{!e.entry.Image_URL__c}" />
+			</div>
+			</div>
+	        
 	        <p>Points: {!e.points} </p>
 	        <p>Next Contestant: {!e.sortOrder + 1} </p>
 	        

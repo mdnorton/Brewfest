@@ -7,6 +7,14 @@
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+    <script src="https://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.pack.js" type="text/javascript"></script>
+    <!-- 
+    <link rel="stylesheet" href="https://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css" />
+    <link rel="stylesheet" href="http://nortonmd.com/mobile/jquery.rating.css" />
+	-->
+	<apex:stylesheet value="{!URLFOR($Resource.StarRating,'jquery-rating.css' )}" />
+
 </head> 
 <body> 
 
@@ -36,12 +44,11 @@ $j( document ).bind('swiperight',function(event, ui){
 	<apex:repeat value="{!entries}" var="e" >
 	    <div data-role="page" id="page{!e.sortOrder}">
 	        <div data-role="header">
-	                <h1>Mobile App {!e.entry.Contest__r.Name}</h1>
+	                <h1>{!e.entry.Contest__r.Name}</h1>
 	        </div> <!-- page1 header -->
 	      <div data-role="content">
-	        <p> This is one of the voting pages </p>
-	        <p>Entry Name: {!e.entry.Name} </p>
-	        <p>Contestant: {!e.entry.Contestant__r.Name} </p>
+	        <h1>{!e.entry.Name} </h1>
+	        <h2>{!e.entry.Contestant__r.Name} </h2>
 
 	        <!-- IMAGE HERE -->
 			<div class="ui-block-b"> <div class="ui-bar">
@@ -50,7 +57,12 @@ $j( document ).bind('swiperight',function(event, ui){
 			</div>
 	        
 	        <p>Points: {!e.points} </p>
-	        <p>Next Contestant: {!e.sortOrder + 1} </p>
+	        <!-- <p>Next Contestant: {!e.sortOrder + 1} </p> -->
+			<input name="star1" type="radio" class="auto-submit-star" value="1"/>
+			<input name="star1" type="radio" class="auto-submit-star" value="2"/>
+			<input name="star1" type="radio" class="auto-submit-star" value="3"/>
+			<input name="star1" type="radio" class="auto-submit-star" value="4"/>
+			<input name="star1" type="radio" class="auto-submit-star" value="5"/>
 	        
 	        
 	        <!--  <a data-role="button" data-rel="back" data-direction="reverse">Back</a> -->

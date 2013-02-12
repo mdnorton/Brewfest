@@ -3,6 +3,13 @@ public with sharing class MobileWizController {
 
 	public Contest_Ballot__c ballot { get; private set; }
 	public List<ContestEntry> entries { get; set; }
+	public String getEntryCount() {
+		if ( entries != null && entries.size() > 0 ) {
+			return '' + entries.size();
+		} else {
+			return '0';
+		}
+	}
 
 	public MobileWizController() {
 		ballotCode = ApexPages.currentPage().getParameters().get( 'ballotCode');
@@ -16,7 +23,7 @@ public with sharing class MobileWizController {
 										  from Contest_Entry__c
 										 where Contest__c = :ballot.Contest__c
 										 order by Display_Order__c] ) {
-		 	entries.add( new ContestEntry( entry, i++));
+		 	entries.add( new ContestEntry( entry, ++i));
 		 }
 
 	}

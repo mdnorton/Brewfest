@@ -26,7 +26,11 @@
 $j( document ).bind('swipeleft',function(event, ui){
 	console.log( 'swipe left');
 	pageNum += 1;
-	var nextPage = '#page' + pageNum;
+	if ( pageNum <= {!entryCount} ) {
+		var nextPage = '#page' + pageNum;
+	} else {
+		var nextPage = '#reviewPage';
+	}
 	$j.mobile.changePage( nextPage, { transition: "slide"} );
 });
 
@@ -38,7 +42,6 @@ $j( document ).bind('swiperight',function(event, ui){
 });
 </script>
 
-
 	<apex:form >
 
 	<apex:repeat value="{!entries}" var="e" >
@@ -46,8 +49,9 @@ $j( document ).bind('swiperight',function(event, ui){
 	        <div data-role="header">
 	                <h1>{!e.entry.Contest__r.Name}</h1>
 	        </div> <!-- page1 header -->
+	        
 	      <div data-role="content">
-	        <h1>{!e.entry.Name} </h1>
+	        <h1>{!e.entry.Name}</h1>
 	        <h2>{!e.entry.Contestant__r.Name} </h2>
 
 	        <!-- IMAGE HERE -->
@@ -64,7 +68,8 @@ $j( document ).bind('swiperight',function(event, ui){
 			<input name="star1" type="radio" class="auto-submit-star" value="4"/>
 			<input name="star1" type="radio" class="auto-submit-star" value="5"/>
 	        
-	        
+	        <h3>This is entry {!e.sortOrder} of {!entryCount}.</h3>
+	        <h3>Use the swipe gesture to move between contest entries.</h3>
 	        <!--  <a data-role="button" data-rel="back" data-direction="reverse">Back</a> -->
 	      </div>
 	    </div>
@@ -73,14 +78,21 @@ $j( document ).bind('swiperight',function(event, ui){
     <!-- Last Page -->
     <div data-role="page" id="reviewPage">
         <div data-role="header">
-                <h1>Mobile App</h1>
+			<h1><i>Need contest name here</i></h1>
         </div> <!-- page1 header -->
+        
       <div data-role="content">
-        <p> This is the review page </p>
+        <h1> Review your voting. </h1>
         <!-- <apex:commandButton value="Apex Submit" action="{!onSubmit}" />
         -->
+        <apex:repeat value="{!entries}" var="e">
+	        	<p>#{!e.sortOrder} - {!e.entry.Name} - {!e.points}</p>
+        </apex:repeat>
+		<!-- SAVE THIS FOR THE VERY VERY LAST PAGE 
         <a data-role="button" data-rel="back" data-direction="reverse">Back</a>
         <p><a href="#page1" data-transition="pop" data-role="button">Start Over</a></p>
+         -->
+		<h3>Use the left to right swipe gesture to go back to the entries.</h3>
       </div>
     </div>
 

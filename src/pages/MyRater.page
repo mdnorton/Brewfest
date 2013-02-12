@@ -1,0 +1,35 @@
+<apex:page controller="MyScoreController">
+
+    <apex:form id="thePage">
+        <apex:outputPanel id="showIt">
+            <h1> Message: {!message} </h1>
+            <p>The Score: {!score}</p>
+        </apex:outputPanel>
+        
+        <apex:outputPanel onclick="clearScore()" styleClass="btn"> reset </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!IF( numScore >= 1, 'true', 'false')}" onclick="setScore('1')" styleClass="btn"> + score 1 </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF( numScore < 1, 'true', 'false')}" onclick="setScore('1')" styleClass="btn"> score 1 </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!IF( numScore >= 2, 'true', 'false')}" onclick="setScore('2')" styleClass="btn"> + score 2 </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF( numScore < 2, 'true', 'false')}" onclick="setScore('2')" styleClass="btn"> score 2 </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!IF( numScore >= 3, 'true', 'false')}" onclick="setScore('3')" styleClass="btn"> + score 3 </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF( numScore < 3, 'true', 'false')}" onclick="setScore('3')" styleClass="btn"> score 3 </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!IF( numScore >= 4, 'true', 'false')}" onclick="setScore('4')" styleClass="btn"> + score 4 </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF( numScore < 4, 'true', 'false')}" onclick="setScore('4')" styleClass="btn"> score 4 </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!IF( numScore >= 5, 'true', 'false')}" onclick="setScore('5')" styleClass="btn"> + score 5 </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF( numScore < 5, 'true', 'false')}" onclick="setScore('5')" styleClass="btn"> score 5 </apex:outputPanel>
+
+    </apex:form>
+        
+    <apex:form >
+        <apex:actionFunction name="clearScore" action="{!onReset}" reRender="thePage"/>
+        <apex:actionFunction name="setScore" action="{!onScore}" reRender="thePage">
+            <apex:param name="firstParam" assignTo="{!uiScore}" value="" />
+        </apex:actionFunction>
+    </apex:form>
+
+</apex:page>

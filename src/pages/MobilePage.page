@@ -1,23 +1,23 @@
 <apex:page showHeader="false"  standardStylesheets="false" cache="false" doctype="html-5.0">
-<c:App >
+<c:App debug="true">
     <apex:composition template="SplitViewTemplate">
         <apex:define name="menu">
             <c:Page name="list" theme="touch">
                 <c:Header >
-                    <h1 style="font-size: 20px; margin: 0px;">All Contacts</h1>
+                    <h1 style="font-size: 20px; margin: 0px;">Brewfest 2013 Entries</h1>
                 </c:Header>
                 <c:Content >
-                    <c:List sobject="Contact" labelField="Name" subLabelField="Account.Name" sortByField="FirstName" listFilter="true"/>
+                    <c:List sobject="Contest_Entry__c" labelField="Name" subLabelField="Contestant__r.Name" sortByField="Name" listFilter="false"/>
                 </c:Content>
             </c:Page>
         </apex:define>
         <apex:define name="main">
             <c:Page name="main" theme="touch">
                 <c:Header >
-                    <h1 style="font-size: 22px; margin: 0px;">Contact Details</h1>
+                    <h1 style="font-size: 22px; margin: 0px;">Entry Details</h1>
                 </c:Header>
                 <c:Content >
-                    <c:Detail sobject="Contact"/>
+                    <c:Detail sobject="Contest_Entry__c"/>
                 </c:Content>
             </c:Page>
         </apex:define>

@@ -3,24 +3,51 @@
     <types>
         <members>AppController</members>
         <members>AppUtil</members>
+        <members>Ballot2011ControllerTest</members>
+        <members>BallotHelper</members>
+        <members>Ballots2011Controller</members>
         <members>BaseConfig</members>
         <members>BaseConfigController</members>
+        <members>ChangePasswordController</members>
         <members>ContentController</members>
+        <members>ContestBallotGenerator</members>
+        <members>ContestEntryListExtension</members>
+        <members>ContestEntryListTest</members>
+        <members>ContestGenerateBallotsTest</members>
+        <members>ContestHelper</members>
+        <members>ContestVoteController</members>
+        <members>ContestVoteControllerTest</members>
         <members>DetailController</members>
+        <members>FooEmail</members>
         <members>FooterController</members>
+        <members>ForgotPasswordController</members>
         <members>HeaderController</members>
         <members>ListController</members>
+        <members>MobileAppController</members>
+        <members>MobileAppTestController</members>
+        <members>MobileWizController</members>
+        <members>MobileWizardController</members>
+        <members>MyScoreController</members>
         <members>NavController</members>
         <members>PageController</members>
+        <members>PrintBallotQRCodesExtension</members>
+        <members>PrintBallotQRCodesExtensionTest</members>
         <members>RemoteRequest</members>
         <members>RemoteResponse</members>
+        <members>RemoteTest</members>
+        <members>Results2010Controller</members>
+        <members>Results2010ControllerTest</members>
         <members>SFDCApiClient</members>
         <members>SFDCPartnerSoap</members>
         <members>SFDCPartnerSoapFault</members>
         <members>SObjectController</members>
         <members>SObjectResponse</members>
         <members>SchemaManager</members>
+        <members>SiteLoginController</members>
+        <members>SiteRegisterController</members>
         <members>TestClass</members>
+        <members>Util</members>
+        <members>remoteContestHelper</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -28,20 +55,69 @@
         <members>Content</members>
         <members>Detail</members>
         <members>Footer</members>
+        <members>ForceByDesign</members>
         <members>Header</members>
+        <members>HomeBrewFest</members>
         <members>List</members>
         <members>Nav</members>
         <members>Page</members>
+        <members>SiteFooter</members>
+        <members>SiteHeader</members>
+        <members>SiteLogin</members>
+        <members>SitePoweredBy</members>
         <name>ApexComponent</name>
     </types>
     <types>
+        <members>BallotList</members>
+        <members>Ballots2011</members>
+        <members>BandwidthExceeded</members>
+        <members>ChangePassword</members>
+        <members>ContestEntryList</members>
+        <members>ContestVote</members>
+        <members>ContestVoteComplete</members>
+        <members>ContestVoteGetBallot</members>
+        <members>Exception</members>
+        <members>FileNotFound</members>
+        <members>ForceByDesignBanner</members>
+        <members>ForgotPassword</members>
+        <members>ForgotPasswordConfirm</members>
+        <members>IdeasHome</members>
+        <members>InMaintenance</members>
+        <members>MobileApp</members>
+        <members>MobileAppTest</members>
         <members>MobilePage</members>
         <members>MobilePageWithComponents</members>
+        <members>MobileWiz</members>
+        <members>MobileWiz1</members>
+        <members>MobileWizard1</members>
+        <members>MobileWizard2</members>
+        <members>MobileWizard3</members>
+        <members>MobileWizard4</members>
+        <members>MyRater</members>
+        <members>PrintBallotQRCodes</members>
+        <members>RemoteContestUtil</members>
+        <members>RemoteTestPage</members>
+        <members>Results2010</members>
+        <members>SiteLogin</members>
+        <members>SiteRegister</members>
+        <members>SiteRegisterConfirm</members>
+        <members>SiteTemplate</members>
         <members>SplitViewTemplate</members>
+        <members>StdExceptionTemplate</members>
+        <members>Unauthorized</members>
+        <members>UnderConstruction</members>
         <name>ApexPage</name>
     </types>
     <types>
+        <members>ContestGenerateBallots</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>BF12Logo</members>
+        <members>ContestCSS</members>
         <members>DetailComponentJS</members>
+        <members>FBDBanner</members>
+        <members>ForceByDesignLogo</members>
         <members>ListComponentJS</members>
         <members>MobileVisualforceSDKImages</members>
         <members>MobileVisualforceSDKcss</members>
@@ -49,6 +125,7 @@
         <members>MobileVisualforceSDKjsMin</members>
         <members>NavComponentJS</members>
         <members>PageComponentJS</members>
+        <members>SiteSamples</members>
         <members>jqm11css</members>
         <members>jqm11js</members>
         <members>jqm11jsMin</members>

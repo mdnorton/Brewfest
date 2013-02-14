@@ -1,0 +1,10 @@
+<apex:component controller="HeaderController" layout="none">
+    <!--  style and behavior -->
+    <apex:attribute name="position" type="String" default="fixed" description="[inline|fixed]"/>
+    
+    <apex:outputPanel layout="none" id="header">
+	    <header id="{!$Component.header}" data-role="header" data-position="{!position}">
+	        <apex:componentBody />
+	    </header><!-- /header -->
+    </apex:outputPanel>
+</apex:component>

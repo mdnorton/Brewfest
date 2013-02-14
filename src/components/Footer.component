@@ -1,0 +1,10 @@
+<apex:component controller="FooterController" layout="none">
+    <!--  style and behavior -->
+    <apex:attribute name="position" type="String" default="fixed" description="[inline|fixed]"/>
+
+    <apex:outputPanel layout="none" id="footer">
+	    <footer id="{!$Component.footer}" data-role="footer" data-position="{!position}">
+	        <apex:componentBody />
+	    </footer><!-- /footer -->
+    </apex:outputPanel>
+</apex:component>

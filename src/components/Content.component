@@ -1,0 +1,7 @@
+<apex:component controller="ContentController" layout="none">
+    <apex:outputPanel layout="none" id="content">
+	    <div data-role="content" id="{!$Component.content}">
+	        <apex:componentBody />
+	    </div><!-- /content -->
+    </apex:outputPanel>
+</apex:component>
